@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #0A0A0F;
+    color: #E8E6F0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-image: 
+      radial-gradient(ellipse at 15% 25%, rgba(180, 76, 255, 0.06) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 15%, rgba(255, 61, 142, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 70%, rgba(195, 139, 255, 0.04) 0%, transparent 60%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #B44CFF, #FF3D8E);
+    border-radius: 10px;
+  }
+
+  ::selection {
+    background: rgba(180, 76, 255, 0.3);
+    color: #FFFFFF;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(18, 18, 26, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(180, 76, 255, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  }
+
+  .glass-strong {
+    background: rgba(14, 14, 20, 0.7);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(180, 76, 255, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .glass-card {
+    background: rgba(18, 18, 26, 0.4);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(180, 76, 255, 0.1);
+    border-radius: 24px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.01);
+  }
+
+  .glass-card:hover {
+    background: rgba(22, 22, 35, 0.55);
+    border-color: rgba(180, 76, 255, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 50px rgba(180, 76, 255, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #D4A5FF 0%, #B44CFF 30%, #FF69B4 60%, #FF3D8E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+  }
+
+  .btn-premium {
+    background: linear-gradient(135deg, #7B2FFF 0%, #B44CFF 30%, #FF3D8E 70%, #FF69B4 100%);
+    background-size: 200% 200%;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 14px 28px;
+    border-radius: 14px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(180, 76, 255, 0.35), 0 0 50px rgba(255, 61, 142, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(180, 76, 255, 0.5), 0 0 70px rgba(255, 61, 142, 0.3);
+    background-position: 100% 100%;
+  }
+
+  .btn-glass {
+    background: rgba(18, 18, 26, 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(180, 76, 255, 0.25);
+    color: #C38BFF;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 14px 28px;
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-glass:hover {
+    background: rgba(180, 76, 255, 0.12);
+    border-color: rgba(180, 76, 255, 0.5);
+    box-shadow: 0 0 30px rgba(180, 76, 255, 0.15);
+    color: #D4A5FF;
+    transform: translateY(-2px);
+  }
+
+  .input-premium {
+    background: rgba(18, 18, 26, 0.6);
+    border: 1px solid rgba(180, 76, 255, 0.15);
+    border-radius: 14px;
+    padding: 14px 18px;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .input-premium:focus {
+    outline: none;
+    border-color: rgba(180, 76, 255, 0.5);
+    box-shadow: 0 0 0 4px rgba(180, 76, 255, 0.08);
+    background: rgba(22, 22, 35, 0.8);
+  }
+}
+
+/* Suporte para perspectiva 3D nas transições */
+#root {
+  perspective: 1200px;
+}
+
+/* Estilo para o motion.div durante animação */
+.motion-div {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Efeito de brilho na transição */
+.page-transition-glow {
+  animation: transitionGlow 0.7s ease-out;
+}
+
+@keyframes transitionGlow {
+  0% { box-shadow: 0 0 0 rgba(180, 76, 255, 0); }
+  50% { box-shadow: 0 0 80px rgba(180, 76, 255, 0.3), 0 0 150px rgba(255, 61, 142, 0.15); }
+  100% { box-shadow: 0 0 0 rgba(180, 76, 255, 0); }
+}

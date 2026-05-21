@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(BARBER)
+  avatar    String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  appointments Appointment[]
+  @@map("users")
+}
+
+model Client {
+  id          String   @id @default(uuid())
+  name        String
+  email       String?
+  phone       String   @unique
+  birthDate   DateTime? @map("birth_date")
+  notes       String?
+  avatar      String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  appointments Appointment[]
+  timeline     Timeline[]
+  @@map("clients")
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  duration    Int      @default(30)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  appointments Appointment[]
+  @@map("services")
+}
+
+model Appointment {
+  id        String   @id @default(uuid())
+  date      DateTime
+  status    Status   @default(SCHEDULED)
+  notes     String?
+  price     Decimal  @db.Decimal(10, 2)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  userId    String   @map("user_id")
+  clientId  String   @map("client_id")
+  serviceId String   @map("service_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  @@map("appointments")
+}
+
+model Timeline {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?
+  imageUrl  String?  @map("image_url")
+  eventDate DateTime @map("event_date")
+  createdAt DateTime @default(now()) @map("created_at")
+  clientId  String   @map("client_id")
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  @@map("timeline")
+}
+
+enum Role {
+  ADMIN
+  BARBER
+  MANAGER
+}
+
+enum Status {
+  SCHEDULED
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
