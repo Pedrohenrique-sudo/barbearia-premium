@@ -132,6 +132,30 @@ cd backend
 npm install
 npm run dev
 
+
+# 📱 ANDROID (Termux)
+
+# 1. Instalar dependências
+pkg update && pkg upgrade -y
+pkg install nodejs git -y
+
+# 2. Clonar o projeto
+git clone https://github.com/Pedrohenrique-sudo/barbearia-premium.git
+cd barbearia-premium
+
+# 3. Iniciar Backend (Terminal 1)
+cd backend
+npm install
+npm run dev
+
+# 4. Iniciar Frontend (Terminal 2 - deslizar para nova sessão)
+cd ~/barbearia-premium/frontend
+npm install
+npm run dev -- --host
+
+# 5. Acessar no navegador do celular
+# http://localhost:5173/login
+
 # 5. Terminal 2 - Frontend
 cd frontend
 npm install
