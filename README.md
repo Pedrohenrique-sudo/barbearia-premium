@@ -163,3 +163,44 @@ npm run dev
 
 # 6. Acesse
 # http://localhost:5173/login
+
+
+
+
+
+# 🐧 LINUX MINT (Terminal)
+
+# 1. Instalar Node.js 20 LTS
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# 2. Instalar XAMPP
+wget https://www.apachefriends.org/xampp-files/8.2.12/xampp-linux-x64-8.2.12-0-installer.run
+chmod +x xampp-linux-x64-8.2.12-0-installer.run
+sudo ./xampp-linux-x64-8.2.12-0-installer.run
+
+# 3. Iniciar XAMPP (MySQL)
+sudo /opt/lampp/lampp start
+
+# 4. Clonar o projeto
+git clone https://github.com/Pedrohenrique-sudo/barbearia-premium.git
+cd barbearia-premium
+
+# 5. Importar o banco de dados
+sudo /opt/lampp/bin/mysql -u root < barbearia_premium.sql
+
+# 6. Instalar e iniciar Backend (Terminal 1)
+cd backend
+npm install
+npm run dev
+
+# 7. Instalar e iniciar Frontend (Terminal 2)
+cd ../frontend
+npm install
+npm run dev
+
+# 8. Acessar no navegador
+# http://localhost:5173/login
+
+# 🔑 Login: admin@barbeariapremium.com
+# 🔒 Senha: admin123
