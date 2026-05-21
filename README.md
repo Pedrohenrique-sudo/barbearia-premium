@@ -1,6 +1,4 @@
-cd ~/BARBEARIA_FINAL/barbearia-premium
 
-cat > README.md << 'EOF'
 # 🪐 Barbearia Premium
 
 <div align="center">
