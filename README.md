@@ -1,4 +1,3 @@
-
 # 🪐 Barbearia Premium
 
 <div align="center">
@@ -115,86 +114,28 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0+-blue?style=flat-square&logo=mysql)
 ![npm](https://img.shields.io/badge/npm-10+-red?style=flat-square&logo=npm)
 
-### 🪟 Windows
+### 🐧 LINUX MINT / UBUNTU
 
 ```bash
-# 1. Clone o repositório
+# 1. Clonar o projeto
 git clone https://github.com/Pedrohenrique-sudo/barbearia-premium.git
 cd barbearia-premium
 
-# 2. Inicie o MySQL (XAMPP)
-
-# 3. Importe o banco de dados (phpMyAdmin)
-# Arquivo: barbearia_premium.sql
-
-# 4. Terminal 1 - Backend
-cd backend
-npm install
-npm run dev
-
-
-
-
-# 📱 ANDROID (Termux)
-
-# 1. Instalar dependências
-pkg update && pkg upgrade -y
-pkg install nodejs git -y
-
-# 2. Clonar o projeto
-git clone https://github.com/Pedrohenrique-sudo/barbearia-premium.git
-cd barbearia-premium
-
-# 3. Rodar o Backend (Terminal 1)
-cd backend
-npm install
-npm run dev
-
-# 4. Rodar o Frontend (Terminal 2 - deslizar para nova sessão)
-cd ~/barbearia-premium/frontend
-npm install
-npm run dev -- --host
-
-# 5. Acessar no navegador do celular
-# http://localhost:5173/login
-
-
-
-
-
-# 🐧 LINUX MINT (Terminal)
-
-# 1. Instalar Node.js 20 LTS
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install -y nodejs
-
-# 2. Instalar XAMPP
-wget https://www.apachefriends.org/xampp-files/8.2.12/xampp-linux-x64-8.2.12-0-installer.run
-chmod +x xampp-linux-x64-8.2.12-0-installer.run
-sudo ./xampp-linux-x64-8.2.12-0-installer.run
-
-# 3. Iniciar XAMPP (MySQL)
+# 2. Iniciar XAMPP
 sudo /opt/lampp/lampp start
 
-# 4. Clonar o projeto
-git clone https://github.com/Pedrohenrique-sudo/barbearia-premium.git
-cd barbearia-premium
-
-# 5. Importar o banco de dados
+# 3. Importar o banco de dados
 sudo /opt/lampp/bin/mysql -u root < barbearia_premium.sql
 
-# 6. Instalar e iniciar Backend (Terminal 1)
+# 4. Instalar e iniciar Backend (Terminal 1)
 cd backend
 npm install
 npm run dev
 
-# 7. Instalar e iniciar Frontend (Terminal 2)
+# 5. Instalar e iniciar Frontend (Terminal 2 - nova aba)
 cd ../frontend
 npm install
 npm run dev
 
-# 8. Acessar no navegador
+# 6. Acessar no navegador
 # http://localhost:5173/login
-
-# 🔑 Login: admin@barbeariapremium.com
-# 🔒 Senha: admin123
