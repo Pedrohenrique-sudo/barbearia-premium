@@ -132,6 +132,26 @@ cd backend
 npm install
 npm run dev
 
+
+⚠️ SOLUÇÃO DE PROBLEMAS
+bash
+# Erro EACCES (permissão negada)
+sudo chmod -R 777 backend/node_modules
+sudo chmod -R 777 frontend/node_modules
+bash
+# MySQL não conecta
+sudo /opt/lampp/lampp restartmysql
+bash
+# Porta 3333 ocupada
+sudo kill -9 $(sudo lsof -t -i:3333)
+bash
+# Backend não sobe
+cd backend && rm -rf node_modules && npm install && npm run dev
+bash
+# Frontend não sobe
+cd frontend && rm -rf node_modules && npm install && npm run dev
+
+
 # 5. Instalar e iniciar Frontend (Terminal 2 - nova aba)
 cd ../frontend
 npm install
